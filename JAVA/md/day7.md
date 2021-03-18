@@ -134,7 +134,7 @@ HashMap<String> map = new HashMap();
 
 - 저장
 
-  - put(String key, Object o)
+  - put(Object key, Object o)
 
     ```java
     map.put("id", 100);
@@ -144,7 +144,7 @@ HashMap<String> map = new HashMap();
 
 - 조회
 
-  - get(String key)
+  - get(Object key)
 
     ``` java
     map.get("id");
