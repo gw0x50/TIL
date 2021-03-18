@@ -44,6 +44,8 @@ public class HashSetTest {
 		for(Integer i : lotto) {
 			System.out.println(i);
 		}
+		
+		
 	}
 
 }

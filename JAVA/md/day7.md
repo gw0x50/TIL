@@ -17,12 +17,12 @@
   - 키는 중복 X, 값 중복 O
   - HashMap, HashTable, Properties 
 
-|       List       | Set              | Map                             |
-| :--------------: | ---------------- | ------------------------------- |
-|   데이터 = 값    | 데이터 = 값      | 데이터 = (키, 값)               |
-|    순서 있음     | 순서 없음        | 순서 없음                       |
+|       List       |       Set        |               Map               |
+| :--------------: | :--------------: | :-----------------------------: |
+|   데이터 = 값    |   데이터 = 값    |        데이터 = (키, 값)        |
+|    순서 있음     |    순서 없음     |            순서 없음            |
 | 중복 데이터 허용 | 중복 데이터 불가 | 키 중복 허용 X / 값 중복 허용 O |
-|    ArrayList     | HashSet          | HashMap                         |
+|    ArrayList     |     HashSet      |             HashMap             |
 
 - 여러 가지 데이터 타입 저장 가능
 - 동적 크기 변경
@@ -71,11 +71,11 @@ ArrayList list = new ArrayList; // 최초의 객체 5개 생성, 부족하면 �
 
   - size() / 데이터 개수 조회
 
-  - contains(Object o) / 데이터 저장여부 조회
+  - contains(Object o) / 데이터 저장 여부 조회
 
-  - indexOf(Object o) / 데이터 저장위치 조회
+  - indexOf(Object o) / 데이터 저장 위치 조회
 
-  - get(int index) / 특정 위치 저장데이터 조회
+  - get(int index) / 특정 위치 저장 데이터 조회
 
   - -> LikedList, Vector
 
@@ -107,9 +107,13 @@ HashSet<A> set = new HashSet<A>(); // 길이 동적 유지 / 한 타입 저장
 
 - 조회
 
-  - Iterator<E>
+  - Iterator<E> / for each
+
+  - size() / 데이터 개수 조회
 
     ``` java
+    set.size(); // return int
+    
     Iterator it = set.iterator();
     while(it.hasNext()) {
     	Object o = it.next();
@@ -117,6 +121,9 @@ HashSet<A> set = new HashSet<A>(); // 길이 동적 유지 / 한 타입 저장
     Iterator<A> it = set.iterator();
     while(it.hasNext()) {
     	A o = it.next();
+    }
+    for(Integer i : set) {
+    	System.out.println(i);
     }
     ```
 
@@ -139,18 +146,38 @@ HashMap<String> map = new HashMap();
     ```java
     map.put("id", 100);
     map.put("score", 100);
-    map.put("id", 200); // id key 값을 수정
+    ```
+
+- 저장
+
+  - put(Object key, Object o)
+
+    ```java
+    map.put("id", 200); // id key의 값을 수정
     ```
 
 - 조회
 
   - get(Object key)
 
+  - keySet()
+
+  - containsKey(Object key) / 데이터 저장 여부 조회
+
     ``` java
-    map.get("id");
+    map.get("id"); // return Object
+    map.containsKey("Key"); // return boolean
+    map.keySet(); // return Set<A>
+    
     ```
 
-    
+## 제네릭 - generics
+
+1. 미리 사용 데이터 타입 알려주고
+2. 컴파일러 타입 체크 후
+3. 잘못된 형 변환 실행 시 오류를 줄여준다.
+
+
 
 
 
