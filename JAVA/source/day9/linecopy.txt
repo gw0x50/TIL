@@ -1,0 +1,42 @@
+1 : package day9;
+2 : 
+3 : import java.io.FileReader;
+4 : import java.io.FileWriter;
+5 : import java.io.IOException;
+6 : import java.util.Scanner;
+7 : 
+8 : public class FileCopyTest3 {
+9 : 
+10 : 	public static void main(String[] args) {
+11 : 		FileReader fr = null;
+12 : 		FileWriter fw = null;
+13 : 		try {
+14 : 			fr = new FileReader("src/day9/FileCopyTest3.java");
+15 : 			fw = new FileWriter("linecopy.txt");
+16 : 			Scanner sc = new Scanner(fr);
+17 : 			int lineNum = 1;
+18 : 
+19 : 			while (sc.hasNextLine()) {
+20 : 				String line = sc.nextLine(); // \n 이전 문자까지 입력
+21 : 				// System.out.print(lineNum++ + " : " + line + "\n");
+22 : 				fw.write(lineNum++ + " : " + line + "\n");
+23 : 			}
+24 : 
+25 : 		}
+26 : 		catch (IOException e) {
+27 : 			e.printStackTrace();
+28 : 		}
+29 : 		finally {
+30 : 			try {
+31 : 				fr.close();
+32 : 				fw.close();
+33 : 			}
+34 : 			catch (IOException e) {
+35 : 
+36 : 			}
+37 : 
+38 : 		}
+39 : 
+40 : 	}
+41 : 
+42 : }
