@@ -4,7 +4,7 @@ alter user hr identified by hr account unlock;
 
 set pagesize 100;
 
-set linesize 150;
+set linesize 150;ㅇ
 
 | DDL                 | DML                    | DCL           | TCL              | DQL    |
 | ------------------- | ---------------------- | ------------- | ---------------- | ------ |
