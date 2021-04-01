@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.box {
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		background: red;
+		color: white;
+	}
+	#one {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		background-color: olive;
+		z-index: 4;
+	}
+	#two {
+		position: absolute;
+		top: 40px;
+		left: 40px;
+		background-color: pink;
+		z-index: 3;
+	}
+	#three {
+		position: absolute;
+		top: 50px;
+		left: 50px;
+		background-color: red;
+		z-index: 2;
+	}
+	#four {
+		position: absolute;
+		top: 60px;
+		left: 60px;
+		background-color: silver;
+		z-index: 1;
+	}
+</style>
+</head>
+<body>
+
+<div class="box" id="one">One</div>
+<div class="box" id="two">Two</div>
+<div class="box" id="three">Three</div>
+<div class="box" id="four">Four</div>
+
+</body>
+</html>
