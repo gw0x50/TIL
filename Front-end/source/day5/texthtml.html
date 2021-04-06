@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		//document.querySelector("div").innerHTML += "내용 추가 수정";
+		//alert(document.querySelector("div").innerHTML);
+		//document.querySelector("div").textContent="<h1>어떻게 보이나요?</h1>"
+	}
+</script>
+<script>
+	$(document).ready(function() {
+	//	$("div").text($("div").text()) + "<h1>내용 추가 수정</h1>";
+	//	alert($("div").text());
+	//});
+		var value = $("input[type=text]").val();
+		var value2 = $("input[type=checkbox]:checked").val();
+		//var value3 = $("input[type=checkbox]");
+		//$("#here").html(value3[0].value + ":" + value3[1].value);
+		var value3 = $("input[type=checkbox]").val(function(){
+			//$("#here").html($("#here").html() + ":" + $(this).val());
+			$("#here").append($(this).val()+":");
+		});
+	});
+</script>
+</head>
+<body>
+	<div>div 태그의 innerHTML 영역입니다.</div>
+	<input type="text" value="입력값입니다">
+	<input type="password">
+	<input type="checkbox" value="choice1">선택1
+	<input type="checkbox" value="choice2" checked="checked">선택2
+	<div id="here">여기에 결과가 보입니다.</div>
+</body>
+</html>
