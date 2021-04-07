@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		if($("input[type=text]").val().length == 0) {
+			alert("아이디 필수항목 입니다.");
+		}
+		else {
+			$("form").attr("action", "login");
+			$("form").attr("method", "get");
+			$("form").submit();
+		}
+	});
+</script>
+</head>
+<body>
+<h1>로그인 폼</h1>
+<form>
+아이디 입력 : <input type="text" name="id"><br>
+암호 입력 : <input type="password" name="pw"><br>
+</form>
+</body>
+</html>
