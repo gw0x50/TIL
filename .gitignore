@@ -140,3 +140,4 @@ buildNumber.properties
 db-config.xml 
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,macos,maven
+.DS_Store
