@@ -137,7 +137,8 @@ buildNumber.properties
 .flattened-pom.xml
 
 #db config files
-db-config.xml 
+db-config.xml
+mybatis_spring.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,macos,maven
 .DS_Store
