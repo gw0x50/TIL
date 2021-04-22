@@ -5,28 +5,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<!--  jquery  --> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--  알람 swal  -->
+<title>세미 프로젝트</title>
+<!-- jquery  --> 
+<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+<!-- 알람 swal  -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- 카카오맵 API -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cf8d72dd879feadc271a57950d99b238&libraries=services"></script>
 <!-- index 관련 script -->
 <script src="/resources/js/index.js"></script>
-<style>
-    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-    .wrap * {padding: 0;margin: 0;}
-    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-    .info .body {position: relative;overflow: hidden;}
-    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    .info .link {color: #5085BB;}
-</style>
+<!-- header css -->
+<link rel="stylesheet" href="/resources/css/header.css" type="text/css">
+<!-- index 관련 css -->
+<link rel="stylesheet" href="/resources/css/index.css" type="text/css">
+<!-- map 관련 css -->
+<link rel="stylesheet" href="/resources/css/map.css" type="text/css">
+<!-- board 관련 css -->
+<link rel="stylesheet" href="/resources/css/board.css" type="text/css">
+<!-- footer css -->
+<link rel="stylesheet" href="/resources/css/footer.css" type="text/css">
+<!-- map 관련 script (jstl 때문에 js파일 분리하지 않았음) -->
 <script>
 $(document).ready(function(){
 	var container = document.getElementById("map"); // 지도를 표시할 div 
@@ -62,29 +60,51 @@ $(document).ready(function(){
 			// 마커가 표시될 위치입니다 
  			var markerPosition  = moveLatLon;
 		
+			// 마커 이미지의 주소입니다
+			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+			
+			// 마커 이미지의 이미지 크기입니다
+			var imageSize = new kakao.maps.Size(24, 35); 
+			
+			// 마커 이미지를 생성합니다
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+			
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
-				position: markerPosition
+				position: markerPosition,
+				image: markerImage
 			});
 		
 			// 마커가 지도 위에 표시되도록 설정합니다
 			marker.setMap(map);
+			
+			// 커스텀 오버레이에 표출될 내용
+			var content = '<div class="customoverlay">' +
+		    '    <span class="title">사용자 입력 주소<br>' + sessionAddress + '</span>' +
+		    '  </a>' +
+		    '</div>';
+			var position = moveLatLon;
 		
-			// 인포윈도우에 표출될 내용
-			var iwContent = "<div style='padding:5px; color:blue;' >사용자 입력 주소</div>"; 
-			var iwPosition = moveLatLon;
-		
-			// 인포윈도우를 생성합니다
-			var infowindow = new kakao.maps.InfoWindow({
-				position : iwPosition, 
-				content : iwContent 
+			// 마커 위에 커스텀오버레이를 표시합니다
+			// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+			var overlay = new kakao.maps.CustomOverlay({
+				map: map,
+				content: content,
+				position: position  
 			});
-		
-			// 마커 위에 인포윈도우를 표시합니다.
-        	infowindow.open(map, marker); 
+			
+			kakao.maps.event.addListener(marker, "click", function() {
+				overlay.setMap(map);
+			});	
+			
+			kakao.maps.event.addListener(map, "click", function() {
+				overlay.setMap(null);
+			});	
+			
 		}// if End
 	});// addressSearch End
 	
+	// 마커 자동 닫힘을 위한 변수
 	var clickedOverlay = null;
 	
 	<c:forEach items="${centerList}" var="center">
@@ -105,27 +125,26 @@ $(document).ready(function(){
 				});
 				
 				// 커스텀 오버레이에 표시할 컨텐츠 입니다
-				// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-				// 별도의 이벤트 메소드를 제공하지 않습니다.
-				var content = '<div class="wrap">' + 
-				            '    <div class="info">' + 
-				            '        <div class="title">' + 
-				            '       ' + "${center.name}" + 
-				            '        </div>' + 
-				            '        <div class="body">' +  + 
-				            '            <div class="desc">' + 
-				            '                <div class="address">' + 
-				            '					<a href="https://map.kakao.com/link/map/'+ "${center.name}" + 
-				            					',' + result[0].y + ',' + result[0].x + 
-							'					" style="color:blue" target="_blank">' + "${center.address}" +
-							'					</a></div>' + 
-				            '                <div class="phone">' + "${center.phone}" + '</div>' + 
-				            '                <div></div>' + 
-				            '            </div>' + 
-				            '        </div>' + 
-				            '    </div>' +    
+				var content = '<div class="map_content">' + 
+								'<div class="info">' + 
+				            		'<div class="title">' + "${center.name}" +  '</div>' + 
+				            		'<div class="body">' + 
+				            			'<div class="desc">' + 
+				            				'<div class="address">' + "${center.address}" + '</div>' + 
+				            				'<div class="phone">' + "${center.phone}" + '</div>' + 
+				            				'<div class="hour">' + '평일 : ' +"${center.weekdays}" + '</div>' +
+				            				'<div class="hour">' +'토요일 : ' + "${center.saturday}" + ' / 일요일 : ' + "${center.sunday}" + '</div>' + 
+				            				'<div class="link">' +
+				            					'<a href="https://map.kakao.com/link/map/'+ "${center.name}" + 
+				            						',' + result[0].y + ',' + result[0].x + 
+													'"style="color:blue" target="_blank">' + "길 찾기로 이동" +
+												'</a>' +
+											'</div>' +				
+				            			'</div>' + 
+				            		'</div>' + 
+				            	'</div>' +    
 				            '</div>';
-				          
+				
 				// 마커 위에 커스텀오버레이를 표시합니다
 				// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
 				var overlay = new kakao.maps.CustomOverlay({
@@ -135,6 +154,7 @@ $(document).ready(function(){
 				});
 				
 				// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+				// 또한 기존에 표시되던 커스텀 오버레이를 종료합니다
 				kakao.maps.event.addListener(marker, "click", function() {
 				    if (clickedOverlay) {
 				    	clickedOverlay.setMap(null);
@@ -151,10 +171,11 @@ $(document).ready(function(){
 
 </head>
 <body>
-	<div id="wrap">
+	<div class="wrap">
 		<jsp:include page="/WEB-INF/views/frame/header.jsp"/>
-		<div id="container">
+		<div class="container">
 			<jsp:include page="/WEB-INF/views/section/map.jsp"/>
+			<jsp:include page="/WEB-INF/views/section/board.jsp"/>
 		</div>
 		<jsp:include page="/WEB-INF/views/frame/footer.jsp"/>
 	</div>

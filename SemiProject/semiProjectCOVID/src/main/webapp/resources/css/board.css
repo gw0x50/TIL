@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.board_section {
+	padding: 35px 0 70px 0;
+	background-color: #cbdeeb;
+}
+.board_title {
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}
+
+.board {
+	width: 600px;
+	height: 500px;
+	margin: 0 auto;
+	border: solid 1px white;
+}
+
