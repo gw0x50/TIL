@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 html, body {
-	margin: 0;
+	overflow-x: hidden;
+	margin: 0 auto;
 	width: 100%;
 	height: 100%;
 	background-color: #2c3e50;
@@ -9,6 +10,11 @@ html, body {
 
 .wrap {
 	margin-top: 90px;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
 }
 
 .member_section {
@@ -24,12 +30,11 @@ html, body {
 }
 
 .member_form {
-	position: absolute;
 	padding: 20px;
 	width: 300px;
 	background-color: #EEEFF1;
 	border-radius: 5px;
-	left: 50%;
+	margin-left: 50%;
 	transform: translate(-50%);
 }
 
@@ -56,7 +61,7 @@ html, body {
 	display:inline-block;
 	padding: 5px;
 	color: inherit;
-	width: 231px;
+	width: 230px;
 	height: 30px;
 	font-family: inherit;
 	font-size: var(- -inputFontSize);
@@ -117,3 +122,6 @@ input[type=button]:hover, input[type=submit]:hover {
 	background-color: red;
 }
 
+input:read-only {
+	background-color: #ccc;
+}

@@ -18,8 +18,8 @@
 			<% } else { %>
 				<div class="user_action">
 					<form action="/member/login" id="loginForm" method="post">
-						아이디 : <input type="text" name="id" id="id"> &nbsp;
-						비밀번호 : <input type="password" name="password" id="password">&nbsp;&nbsp;
+						ID : <input type="text" name="id" id="id"> &nbsp;
+						PW : <input type="password" name="password" id="password">&nbsp;&nbsp;
 						<input type="submit" class="btn" value="로그인">
 						<button type="button" class="btn" onclick="location.href='/member/register'">회원가입</button>
 					</form>

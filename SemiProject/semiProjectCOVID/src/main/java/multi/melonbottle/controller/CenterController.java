@@ -2,6 +2,8 @@ package multi.melonbottle.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,7 @@ public class CenterController {
 	private CenterService service;
 	
 	@RequestMapping("/list")
-	public ModelAndView centerView() {
+	public ModelAndView centerView(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		List<CenterVO> centerList = service.selectAllCenter();
 		

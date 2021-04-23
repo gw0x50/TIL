@@ -16,6 +16,7 @@
 		</div>
 		<div class="copyright">
 			Copyright © Park GeonWoo a.k.a. melonbottle. 2021-2021 All Rights Reserved.
+			<hr>
 		</div>
 	</div>
 </div>
