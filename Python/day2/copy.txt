@@ -1,0 +1,236 @@
+1 번 라인 : {
+2 번 라인 :  "cells": [
+3 번 라인 :   {
+4 번 라인 :    "cell_type": "markdown",
+5 번 라인 :    "id": "69e0d930",
+6 번 라인 :    "metadata": {},
+7 번 라인 :    "source": [
+8 번 라인 :     "# 모듈 import 방법"
+9 번 라인 :    ]
+10 번 라인 :   },
+11 번 라인 :   {
+12 번 라인 :    "cell_type": "code",
+13 번 라인 :    "execution_count": 1,
+14 번 라인 :    "id": "b7a83629",
+15 번 라인 :    "metadata": {},
+16 번 라인 :    "outputs": [
+17 번 라인 :     {
+18 번 라인 :      "data": {
+19 번 라인 :       "text/plain": [
+20 번 라인 :        "3"
+21 번 라인 :       ]
+22 번 라인 :      },
+23 번 라인 :      "execution_count": 1,
+24 번 라인 :      "metadata": {},
+25 번 라인 :      "output_type": "execute_result"
+26 번 라인 :     }
+27 번 라인 :    ],
+28 번 라인 :    "source": [
+29 번 라인 :     "import math\n",
+30 번 라인 :     "math.trunc(3.14)\n",
+31 번 라인 :     "\n",
+32 번 라인 :     "from math import trunc, log\n",
+33 번 라인 :     "trunc(3.14)\n",
+34 번 라인 :     "\n",
+35 번 라인 :     "from math import *\n",
+36 번 라인 :     "trunc(3.14)\n",
+37 번 라인 :     "\n",
+38 번 라인 :     "import math as ma\n",
+39 번 라인 :     "ma.trunc(3.14)"
+40 번 라인 :    ]
+41 번 라인 :   },
+42 번 라인 :   {
+43 번 라인 :    "cell_type": "markdown",
+44 번 라인 :    "id": "098baa21",
+45 번 라인 :    "metadata": {},
+46 번 라인 :    "source": [
+47 번 라인 :     "# 모듈 예제"
+48 번 라인 :    ]
+49 번 라인 :   },
+50 번 라인 :   {
+51 번 라인 :    "cell_type": "code",
+52 번 라인 :    "execution_count": 2,
+53 번 라인 :    "id": "7f650761",
+54 번 라인 :    "metadata": {},
+55 번 라인 :    "outputs": [
+56 번 라인 :     {
+57 번 라인 :      "name": "stdout",
+58 번 라인 :      "output_type": "stream",
+59 번 라인 :      "text": [
+60 번 라인 :       "76\n",
+61 번 라인 :       "6\n",
+62 번 라인 :       "가나다라\n",
+63 번 라인 :       "['ab가나', '가나다라', '가나cd', 'abcde']\n",
+64 번 라인 :       "['가나다라', '가나cd']\n"
+65 번 라인 :      ]
+66 번 라인 :     }
+67 번 라인 :    ],
+68 번 라인 :    "source": [
+69 번 라인 :     "import random\n",
+70 번 라인 :     "\n",
+71 번 라인 :     "print(random.randint(1, 100))\n",
+72 번 라인 :     "print(random.randrange(1, 10))\n",
+73 번 라인 :     "name_list = [\"abcde\", \"가나다라\", \"ab가나\", \"가나cd\"]\n",
+74 번 라인 :     "print(random.choice(name_list))\n",
+75 번 라인 :     "random.shuffle(name_list)\n",
+76 번 라인 :     "print(name_list)\n",
+77 번 라인 :     "print(random.sample(name_list, 2))"
+78 번 라인 :    ]
+79 번 라인 :   },
+80 번 라인 :   {
+81 번 라인 :    "cell_type": "code",
+82 번 라인 :    "execution_count": 3,
+83 번 라인 :    "id": "7d41b972",
+84 번 라인 :    "metadata": {},
+85 번 라인 :    "outputs": [
+86 번 라인 :     {
+87 번 라인 :      "name": "stdout",
+88 번 라인 :      "output_type": "stream",
+89 번 라인 :      "text": [
+90 번 라인 :       "3.9.4 (v3.9.4:1f2e3088f3, Apr  4 2021, 12:19:19) \n",
+91 번 라인 :       "[Clang 12.0.0 (clang-1200.0.32.29)]\n",
+92 번 라인 :       "['/Users/melonbottle/jupyter/day2', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python39.zip', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload', '', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages', '/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/IPython/extensions', '/Users/melonbottle/.ipython']\n"
+93 번 라인 :      ]
+94 번 라인 :     }
+95 번 라인 :    ],
+96 번 라인 :    "source": [
+97 번 라인 :     "import sys\n",
+98 번 라인 :     "print(sys.version)\n",
+99 번 라인 :     "# print(sys.getwindowsversion())\n",
+100 번 라인 :     "print(sys.path)"
+101 번 라인 :    ]
+102 번 라인 :   },
+103 번 라인 :   {
+104 번 라인 :    "cell_type": "code",
+105 번 라인 :    "execution_count": 4,
+106 번 라인 :    "id": "e4cb30f0",
+107 번 라인 :    "metadata": {},
+108 번 라인 :    "outputs": [
+109 번 라인 :     {
+110 번 라인 :      "name": "stdout",
+111 번 라인 :      "output_type": "stream",
+112 번 라인 :      "text": [
+113 번 라인 :       "posix\n",
+114 번 라인 :       "/Users/melonbottle/jupyter/day2\n",
+115 번 라인 :       "['module.ipynb', 'variable.ipynb', 'exception.ipynb', '.ipynb_checkpoints']\n"
+116 번 라인 :      ]
+117 번 라인 :     }
+118 번 라인 :    ],
+119 번 라인 :    "source": [
+120 번 라인 :     "import os\n",
+121 번 라인 :     "\n",
+122 번 라인 :     "print(os.name)\n",
+123 번 라인 :     "print(os.getcwd())\n",
+124 번 라인 :     "print(os.listdir())"
+125 번 라인 :    ]
+126 번 라인 :   },
+127 번 라인 :   {
+128 번 라인 :    "cell_type": "code",
+129 번 라인 :    "execution_count": 5,
+130 번 라인 :    "id": "30884518",
+131 번 라인 :    "metadata": {},
+132 번 라인 :    "outputs": [
+133 번 라인 :     {
+134 번 라인 :      "name": "stdout",
+135 번 라인 :      "output_type": "stream",
+136 번 라인 :      "text": [
+137 번 라인 :       "2021\n",
+138 번 라인 :       "4\n",
+139 번 라인 :       "29\n",
+140 번 라인 :       "16\n",
+141 번 라인 :       "15\n",
+142 번 라인 :       "56\n",
+143 번 라인 :       "1년 뒤 =  2022\n"
+144 번 라인 :      ]
+145 번 라인 :     }
+146 번 라인 :    ],
+147 번 라인 :    "source": [
+148 번 라인 :     "import datetime\n",
+149 번 라인 :     "\n",
+150 번 라인 :     "now = datetime.datetime.now()\n",
+151 번 라인 :     "print(now.year)\n",
+152 번 라인 :     "print(now.month)\n",
+153 번 라인 :     "print(now.day)\n",
+154 번 라인 :     "print(now.hour)\n",
+155 번 라인 :     "print(now.minute)\n",
+156 번 라인 :     "print(now.second)\n",
+157 번 라인 :     "\n",
+158 번 라인 :     "after_1year = now.replace(year=(now.year+1))\n",
+159 번 라인 :     "print(\"1년 뒤 = \",after_1year.year)"
+160 번 라인 :    ]
+161 번 라인 :   },
+162 번 라인 :   {
+163 번 라인 :    "cell_type": "code",
+164 번 라인 :    "execution_count": 6,
+165 번 라인 :    "id": "6d51b82a",
+166 번 라인 :    "metadata": {},
+167 번 라인 :    "outputs": [
+168 번 라인 :     {
+169 번 라인 :      "data": {
+170 번 라인 :       "text/plain": [
+171 번 라인 :        "time.struct_time(tm_year=2021, tm_mon=4, tm_mday=29, tm_hour=16, tm_min=16, tm_sec=3, tm_wday=3, tm_yday=119, tm_isdst=0)"
+172 번 라인 :       ]
+173 번 라인 :      },
+174 번 라인 :      "execution_count": 6,
+175 번 라인 :      "metadata": {},
+176 번 라인 :      "output_type": "execute_result"
+177 번 라인 :     }
+178 번 라인 :    ],
+179 번 라인 :    "source": [
+180 번 라인 :     "import time\n",
+181 번 라인 :     "sec = time.time()\n",
+182 번 라인 :     "time.localtime(sec)"
+183 번 라인 :    ]
+184 번 라인 :   },
+185 번 라인 :   {
+186 번 라인 :    "cell_type": "code",
+187 번 라인 :    "execution_count": null,
+188 번 라인 :    "id": "f8f9da87",
+189 번 라인 :    "metadata": {},
+190 번 라인 :    "outputs": [],
+191 번 라인 :    "source": [
+192 번 라인 :     "import urllib.request as req\n",
+193 번 라인 :     "from bs4 import BeautifulSoup as bs\n",
+194 번 라인 :     "\n",
+195 번 라인 :     "response = req.urlopen(\"http://localhost:9091/\")\n",
+196 번 라인 :     "\n",
+197 번 라인 :     "soup = bs(response, \"html.parser\")\n",
+198 번 라인 :     "\n",
+199 번 라인 :     "# 전체 내용 출력\n",
+200 번 라인 :     "rescontents = soup.prettify()\n",
+201 번 라인 :     "print(rescontents)\n",
+202 번 라인 :     "\n",
+203 번 라인 :     "# h3 태그\n",
+204 번 라인 :     "print(soup.find(\"h3\"))\n",
+205 번 라인 :     "print(soup.find(\"h3\").string)\n",
+206 번 라인 :     "print(soup.find(\"img\")['src'])\n",
+207 번 라인 :     "\n",
+208 번 라인 :     "for h3 in soup.findAll(\"h3\") :\n",
+209 번 라인 :     "    print(h3.string)\n",
+210 번 라인 :     "\n",
+211 번 라인 :     "response.close()"
+212 번 라인 :    ]
+213 번 라인 :   }
+214 번 라인 :  ],
+215 번 라인 :  "metadata": {
+216 번 라인 :   "kernelspec": {
+217 번 라인 :    "display_name": "Python 3",
+218 번 라인 :    "language": "python",
+219 번 라인 :    "name": "python3"
+220 번 라인 :   },
+221 번 라인 :   "language_info": {
+222 번 라인 :    "codemirror_mode": {
+223 번 라인 :     "name": "ipython",
+224 번 라인 :     "version": 3
+225 번 라인 :    },
+226 번 라인 :    "file_extension": ".py",
+227 번 라인 :    "mimetype": "text/x-python",
+228 번 라인 :    "name": "python",
+229 번 라인 :    "nbconvert_exporter": "python",
+230 번 라인 :    "pygments_lexer": "ipython3",
+231 번 라인 :    "version": "3.9.4"
+232 번 라인 :   }
+233 번 라인 :  },
+234 번 라인 :  "nbformat": 4,
+235 번 라인 :  "nbformat_minor": 5
+236 번 라인 : }
